@@ -37,24 +37,27 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Erf-oE-65W">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-2W-xHL">
+                                                    <rect key="frame" x="169" y="3" width="37" height="37"/>
+                                                    <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Erf-oE-65W" firstAttribute="top" secondItem="KD0-7M-QaF" secondAttribute="top" id="4N3-d6-Hcx"/>
+                                                <constraint firstItem="7iv-2W-xHL" firstAttribute="centerY" secondItem="KD0-7M-QaF" secondAttribute="centerY" id="5ho-Om-cRa"/>
                                                 <constraint firstAttribute="bottom" secondItem="Erf-oE-65W" secondAttribute="bottom" id="JBY-1L-H1c"/>
                                                 <constraint firstAttribute="trailing" secondItem="Erf-oE-65W" secondAttribute="trailing" id="kyC-8g-fKk"/>
                                                 <constraint firstItem="Erf-oE-65W" firstAttribute="leading" secondItem="KD0-7M-QaF" secondAttribute="leading" id="rTE-3I-cuf"/>
+                                                <constraint firstItem="7iv-2W-xHL" firstAttribute="centerX" secondItem="KD0-7M-QaF" secondAttribute="centerX" id="sik-Mb-mEq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityView" destination="7iv-2W-xHL" id="ZoZ-hw-8z7"/>
                                             <outlet property="myImageView" destination="Erf-oE-65W" id="Ni2-ew-MuH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-Rl-Q5T">
-                                <rect key="frame" x="169" y="325" width="37" height="37"/>
-                                <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -62,13 +65,10 @@
                             <constraint firstItem="D52-nL-VEo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9qM-R0-Gut"/>
                             <constraint firstItem="D52-nL-VEo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QhV-Kh-c9B"/>
                             <constraint firstItem="D52-nL-VEo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rxp-A9-y4S"/>
-                            <constraint firstItem="rmg-Rl-Q5T" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mAM-2Q-5dJ"/>
-                            <constraint firstItem="rmg-Rl-Q5T" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rhR-zv-pu1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="activitiView" destination="rmg-Rl-Q5T" id="klG-gu-SSN"/>
                         <outlet property="searchBar" destination="Ejj-wP-PJ2" id="hOt-g2-l2H"/>
                         <outlet property="tableView" destination="D52-nL-VEo" id="xqX-WV-RJd"/>
                     </connections>
