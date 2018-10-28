@@ -35,6 +35,7 @@ class ImageModel {
 class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var activitiView: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var images: [ImageModel] = [] {
@@ -43,6 +44,15 @@ class ViewController: UIViewController {
         }
     }
     
+    var imageURLs = [ "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=1500&w=1500",
+                      "https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&h=3200&w=3200",
+                      "https://images.pexels.com/photos/1040626/pexels-photo-1040626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                      "https://images.pexels.com/photos/949586/pexels-photo-949586.jpeg?auto=compress&cs=tinysrgb&h=1500&w=1500",
+                      "https://images.pexels.com/photos/130154/pexels-photo-130154.jpeg?auto=compress&cs=tinysrgb&h=1500&w=1500",
+                      "https://images.pexels.com/photos/36770/flower-lily-lilium-candidum-madonna-lily.jpg?auto=compress&cs=tinysrgb&h=1500&w=1500"]
+    // MARK: - Actions
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +60,32 @@ class ViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        let mySerialQueue = DispatchQueue(label: "lasdkjflkasdf")
+        
+        for imagePath in imageURLs {
+            DispatchQueue.global(qos: .userInitiated).async {
+//            mySerialQueue.async {
+                let image = ImageModel(imagePath: imagePath)
+                DispatchQueue.main.async {
+                    self.images.append(image)
+                    
+                    if self.images.count >= self.imageURLs.count {
+                        self.activitiView.stopAnimating()
+                    }
+                }
+            }
+        }
+        
+//        mySerialQueue.async {
+//            DispatchQueue.main.async {
+//                self.activitiView.stopAnimating()
+//            }
+//        }
     }
 }
 
